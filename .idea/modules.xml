@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/training.iml" filepath="$PROJECT_DIR$/training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yandex_algorithm_training_kotlin.iml" filepath="$PROJECT_DIR$/yandex_algorithm_training_kotlin.iml" />
     </modules>
   </component>
 </project>

@@ -1,10 +1,12 @@
+import java.io.File
 import java.io.PrintWriter
+import java.lang.StringBuilder
 import java.util.StringTokenizer
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-//private val INPUT = File("input.txt").inputStream()
-//private val OUTPUT = File("output.txt").outputStream()
+//private val INPUT = File("src/main/kotlin/task01/input.txt").inputStream()
+//private val OUTPUT = File("src/main/kotlin/task01/output.txt").outputStream()
 private val INPUT = System.`in`
 private val OUTPUT = System.out
 
@@ -41,22 +43,47 @@ private fun Int.modPositive(other: Int): Int = if (this % other < 0) ((this % ot
 
 
 private class task01 {
-    fun solveTestCase(): Boolean {
-        //TODO: Solve the question
+    fun solveTestCase(): String {
+        val input = bufferedReader
+        var max = 0
+        val map = mutableMapOf<Char, Int>()
+        val sb = StringBuilder()
 
-        return true
+        input.forEachLine { line ->
+            line.forEach { c ->
+                if (c != ' ') {
+                    map[c] = (map[c] ?: 0) + 1
+                    val count = map[c]!!
+                    if (count > max) max = count
+                }
+
+            }
+        }
+        repeat(max) { i ->
+            map.keys.sorted().forEach() { c ->
+                if (map[c]!! > max - i - 1) sb.append('#')
+                else sb.append(' ')
+            }
+            sb.append('\n')
+        }
+        map.keys.sorted().forEach { c -> sb.append(c) }
+
+        return sb.toString()
+
     }
+
+
 }
 
-fun main(args: Array<String>) { 
-    repeat(readInt()) {
-        //TODO: Read in each Test Case
+fun main(args: Array<String>) {
 
-        outputWriter.println(
-            task01()
-                .solveTestCase()
-        )
-    }
-    
-    outputWriter.flush() 
+    //TODO: Read in each Test Case
+
+    outputWriter.println(
+        task01()
+            .solveTestCase()
+    )
+
+
+    outputWriter.flush()
 }
